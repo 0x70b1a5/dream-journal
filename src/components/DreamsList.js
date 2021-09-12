@@ -1,16 +1,21 @@
 import DreamListItem from './DreamListItem';
 
-function DreamsList({ dreams }){
+function DreamsList({ dreams, onEdit, onDelete }){
 
     return (
         <div className="dreamsList">
-        {dreams.map((dream, idx) => 
-            <DreamListItem
-                title={dream.title} 
-                key={idx}
-                summary={dream.text.slice(0,100)}
-                date={dream.date} 
-            />)}
+        {dreams.length > 0 ? 
+            dreams.map((dream, idx) => 
+                <DreamListItem
+                    title={dream.title} 
+                    key={dream.id}
+                    summary={dream.text.slice(0,100)}
+                    date={dream.date} 
+                    onEdit={onEdit}
+                    onDelete={onDelete}
+                    id={dream.id}
+                />)
+            : 'No dreams yet.'}
         </div>
     );
 }

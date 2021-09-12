@@ -1,7 +1,4 @@
-function Header(){
-    function addDream() {
-            console.log('dreamin');
-    }
+function Header({ addDream }){
 
     return (
       <button className='btn' onClick={addDream}>Add</button>
