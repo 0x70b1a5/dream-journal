@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import moment from 'moment';
 import './App.css';
+import DreamsList from './components/DreamsList';
 
 function App() {
+  const dreams = [
+    {
+      title: 'Dream 1',
+      text: 'some stuff happened.',
+      date: moment(),
+    },
+    {
+      title: 'Dream 2',
+      text: 'some more stuff happened.',
+      date: moment(),
+    },
+    {
+      title: 'Dream 3',
+      text: 'some other stuff happened.',
+      date: moment(),
+    },
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DreamsList dreams={dreams} />
     </div>
   );
 }
