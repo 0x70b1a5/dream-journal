@@ -1,9 +1,11 @@
 import moment from 'moment';
+import { useState, useEffect } from 'react'
 import './App.css';
 import DreamsList from './components/DreamsList';
+import Header from './components/Header';
 
 function App() {
-  const dreams = [
+  const [dreams, setDreams] = useState([
     {
       title: 'Dream 1',
       text: 'some stuff happened.',
@@ -19,9 +21,11 @@ function App() {
       text: 'some other stuff happened.',
       date: moment(),
     },
-  ];
+  ]);
+
   return (
     <div className="App">
+      <Header />
       <DreamsList dreams={dreams} />
     </div>
   );
