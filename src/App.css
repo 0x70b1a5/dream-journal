@@ -81,6 +81,16 @@ code {
   color: whitesmoke;
 }
 
+.btn-invert {
+  background-color: black;
+  color: whitesmoke;
+}
+
+.btn-invert:hover {
+  background: transparent;
+  color: black;
+}
+
 .btn:active {
   transform: scale(0.95);
 }

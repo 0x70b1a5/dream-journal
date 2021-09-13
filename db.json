@@ -1,0 +1,22 @@
+{
+  "dreams": [
+    {
+      "name": "Dream 1",
+      "text": "some stuff happened.",
+      "date": "2021-09-11",
+      "id": 1
+    },
+    {
+      "name": "Dream 2",
+      "text": "some more stuff happened.",
+      "date": "2021-09-11",
+      "id":  2
+    },
+    {
+      "name": "Dream 3",
+      "text": "some other stuff happened.",
+      "date": "2021-09-11",
+      "id": 3
+    }
+  ]
+}
