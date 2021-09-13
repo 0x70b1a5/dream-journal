@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import './App.css';
 import DreamsList from './components/DreamsList';
 import Header from './components/Header';
+import AddDream from './components/AddDream';
 
 function App() {
   const [dreams, setDreams] = useState([
@@ -40,8 +41,9 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="container">
       <Header addDream={addDream} />
+      <AddDream />
       <DreamsList dreams={dreams} onEdit={onEdit} onDelete={onDelete} />
     </div>
   );
