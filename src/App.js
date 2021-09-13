@@ -8,28 +8,33 @@ import AddDream from './components/AddDream';
 function App() {
   const [dreams, setDreams] = useState([
     {
-      title: 'Dream 1',
+      name: 'Dream 1',
       text: 'some stuff happened.',
-      date: moment(),
+      date: moment().format('YYYY MM DD'),
       id: 1,
     },
     {
-      title: 'Dream 2',
+      name: 'Dream 2',
       text: 'some more stuff happened.',
-      date: moment(),
+      date: moment().format('YYYY MM DD'),
       id:  2,
     },
     {
-      title: 'Dream 3',
+      name: 'Dream 3',
       text: 'some other stuff happened.',
-      date: moment(),
+      date: moment().format('YYYY MM DD'),
       id : 3,
     },
   ]);
 
+  const toggleAddDream = () => {
+
+  }
   
-  const addDream = () => {
-    console.log('dreamin');
+  const addDream = (dream) => {
+    const newDream = { ...dream, id: Math.floor(Math.random() * 100000) + 1 }
+    // console.log(newDream)
+    setDreams([ ...dreams, newDream])
   }
 
   const onEdit = (id) => {
@@ -37,13 +42,15 @@ function App() {
   }
 
   const onDelete = (id) => {
-    setDreams(dreams.filter(dream => dream.id !== id));
+    if (window.confirm('Really delete dream #'+id+'?')) {
+      setDreams(dreams.filter(dream => dream.id !== id));
+    }
   }
 
   return (
     <div className="container">
-      <Header addDream={addDream} />
-      <AddDream />
+      <Header toggleAddDream={toggleAddDream} />
+      <AddDream onAdd={addDream} />
       <DreamsList dreams={dreams} onEdit={onEdit} onDelete={onDelete} />
     </div>
   );

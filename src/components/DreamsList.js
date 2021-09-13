@@ -7,7 +7,7 @@ function DreamsList({ dreams, onEdit, onDelete }){
         {dreams.length > 0 ? 
             dreams.map((dream, idx) => 
                 <DreamListItem
-                    title={dream.title} 
+                    name={dream.name} 
                     key={dream.id}
                     summary={dream.text.slice(0,100)}
                     date={dream.date} 

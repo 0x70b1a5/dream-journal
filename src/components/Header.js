@@ -1,9 +1,9 @@
-function Header({ addDream }){
+function Header({ toggleAddDream }){
 
     return (
       <header>
         <h1>Dream Journal</h1>
-        <button className='btn' onClick={addDream}>Add</button>
+        <button className='btn' onClick={toggleAddDream}>Add</button>
       </header>
     )
 }
