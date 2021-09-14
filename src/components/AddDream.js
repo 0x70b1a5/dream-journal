@@ -12,7 +12,6 @@ const AddDream = ({ onAdd }) => {
         e.preventDefault()
 
         const newDream = { name, date, text }
-        // console.log(newDream)
 
         if (!name || !date) {
             alert('Dream must have a name and date.')

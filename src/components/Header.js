@@ -1,11 +1,11 @@
-function Header({ toggleAddDream, showAdd }){
+function Header({ toggleShowAdd, showAdd }){
 
     return (
       <header>
         <h1>Dream Journal</h1>
         <button 
           className={'btn' + (showAdd ? ' btn-invert' : '')}
-          onClick={toggleAddDream}>
+          onClick={toggleShowAdd}>
             {showAdd ? 'Close' : 'Add'}
         </button>
       </header>
