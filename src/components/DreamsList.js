@@ -9,7 +9,7 @@ function DreamsList({ dreams, onEdit, onDelete }){
                 <DreamListItem
                     name={dream.name} 
                     key={dream.id}
-                    summary={dream.text && dream.text.slice(0,100) || ''}
+                    summary={(dream.text && dream.text.slice(0,100)) || ''}
                     date={dream.date} 
                     onEdit={onEdit}
                     onDelete={onDelete}

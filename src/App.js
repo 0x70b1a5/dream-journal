@@ -1,8 +1,12 @@
 import moment from 'moment';
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
 import './App.css';
 import DreamsList from './components/DreamsList';
 import Header from './components/Header';
+import Footer from './components/Footer';
+import About from './components/About';
 import AddDream from './components/AddDream';
 
 function App() {
@@ -71,11 +75,21 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <Header toggleShowAdd={toggleShowAdd} showAdd={showAdd} />
-      {showAdd && <AddDream onAdd={addDream}  />}
-      <DreamsList dreams={dreams} onEdit={onEdit} onDelete={onDelete} />
-    </div>
+    <Router>
+
+      <div className="container">
+        <Header toggleShowAdd={toggleShowAdd} showAdd={showAdd} />
+        <Route path='/' exact render={(props) => (
+          <>
+
+            {showAdd && <AddDream onAdd={addDream}  />}
+            <DreamsList dreams={dreams} onEdit={onEdit} onDelete={onDelete} />
+          </>
+        )} />
+        <Route path='/about' component={About} />
+        <Footer/>
+      </div>
+    </Router>
   );
 }
 

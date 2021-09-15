@@ -108,6 +108,10 @@ header{
   align-items: center;
 }
 
+footer {
+  text-align: center;
+}
+
 .add-form {
   margin-bottom: 40px;
 }
