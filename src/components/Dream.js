@@ -1,10 +1,11 @@
 import {useState, useEffect} from 'react'
-import { useLocation, useParams } from 'react-router'
+import {  useParams } from 'react-router'
 import React from 'react'
  
 function Dream() {
     const { id } = useParams()
-    const [dream, setDream] = useState({ id: 0, text: '' })
+    const defaultDream = { id: 0, text: 'Loading Dream...' }
+    const [dream, setDream] = useState(defaultDream)
     
     const fetchDream = async (dreamId) => {
         const res = await fetch(`http://localhost:5000/dreams/${dreamId}`)
@@ -26,7 +27,7 @@ function Dream() {
     
     return (
         <div className='dream'>
-            {dream.id && dream.text}
+            {dream.text}
         </div>
     )
 }

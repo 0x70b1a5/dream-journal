@@ -10,7 +10,6 @@ import About from './components/About'
 import AddDream from './components/AddDream'
 
 function App() {
-  const [showAdd, setShowAdd] = useState(false)
   const [dreams, setDreams] = useState([])
   
   useEffect(() => {
@@ -29,10 +28,7 @@ function App() {
     return data
   } 
   
-  
-  const toggleShowAdd = () => {
-    setShowAdd(!showAdd)
-  }
+   
   
   const addDream = async (dream) => {
     const newDream = { ...dream, id: Math.floor(Math.random() * 100000) + 1 }
@@ -70,19 +66,16 @@ const onDelete = (id) => {
 
 return (
   <Router>
-  
-  <div className="container">
-  <Header toggleShowAdd={toggleShowAdd} showAdd={showAdd} />
-  <Route path='/' exact render={(props) => (
-    <>
-    
-    {showAdd && <AddDream onAdd={addDream}  />}
-    <DreamsList dreams={dreams} onEdit={onEdit} onDelete={onDelete} />
-    </>
-    )} />
-    <Route path='/about' component={About} />
-    <Route path='/dream/:id' component={Dream} />
-    <Footer/>
+    <div className="container">
+      <Header  />
+      <Route path='/' exact render={(props) => (
+            <DreamsList dreams={dreams} onEdit={onEdit} onDelete={onDelete} />
+          )} 
+      />
+      <Route path='/about' component={About} />
+      <Route path='/dream/:id' component={Dream} />
+      <Route path='/add' component={AddDream} props={{ onAdd: addDream }} />
+      <Footer/>
     </div>
     </Router>
   )
