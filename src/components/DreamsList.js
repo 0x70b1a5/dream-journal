@@ -2,6 +2,11 @@ import DreamListItem from './DreamListItem';
 
 function DreamsList({ dreams, onEdit, onDelete }){
 
+    const getSummaryText = dream =>  dream.text
+        ? dream.text.length > 100
+            ? dream.text.slice(0,100) + '...'
+            : dream.text
+        : '';
     return (
         <div className="dreamsList">
         {dreams.length > 0 ? 
@@ -9,9 +14,8 @@ function DreamsList({ dreams, onEdit, onDelete }){
                 <DreamListItem
                     name={dream.name} 
                     key={dream.id}
-                    summary={(dream.text && dream.text.slice(0,100)) || ''}
+                    summary={getSummaryText(dream)}
                     date={dream.date} 
-                    onEdit={onEdit}
                     onDelete={onDelete}
                     id={dream.id}
                 />)

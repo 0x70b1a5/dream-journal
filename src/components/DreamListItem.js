@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types'
 import moment from 'moment'
+import {Link} from 'react-router-dom'
 
-function DreamListItem ({ name, date, summary, onEdit, onDelete, id }) {
+function DreamListItem ({ name, date, summary,   onDelete, id }) {
     return (
-        <div className="dreamListItem" onClick={() => onEdit(id)}>
+        <Link className="dreamListItem" to={'/dream/'+id} >
             <div>
                 <h3 className="dreamName" >
                     {name} 
@@ -11,8 +12,8 @@ function DreamListItem ({ name, date, summary, onEdit, onDelete, id }) {
                 </h3>
                 <div className="dreamSummary">{summary}</div>
             </div>
-            <button className='btn btn-delete' onClick={() => onDelete(id)}>Delete</button>
-        </div>
+            <button className='btn btn-delete btn-inline' onClick={() => onDelete(id)}>Delete</button>
+        </Link>
     )
 }
 
@@ -20,7 +21,6 @@ DreamListItem.propTypes = {
     name: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     summary: PropTypes.string.isRequired,
-    onEdit: PropTypes.func.isRequired,
     id: PropTypes.number.isRequired,
 }
 

@@ -24,6 +24,10 @@ body {
   border: 1px solid black;
   border-bottom: 3px solid black;
   padding: 1em;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 code {
@@ -38,6 +42,10 @@ code {
   margin-left: 1em;
 }
 
+.dreamSummary {
+  word-break: break-word;
+}
+
 .dreamsList {
   display: flex;
   flex-direction: column-reverse;
@@ -49,8 +57,13 @@ code {
   padding: 1em;
   border: 1px solid black;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .dreamListItem:hover {
@@ -58,12 +71,16 @@ code {
   padding-left: calc(1em - 2px);
 }
 
-.dreamListItem .btn-delete {
-  display:none;
+.btn-inline {
+
+  display:inline-block;
 }
 
-.dreamListItem:hover .btn-delete {
-  display: inline-block;
+.dream {
+  
+  overflow: hidden;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .btn {
@@ -131,8 +148,4 @@ footer {
   padding: 3px 7px;
   font-size: 17px;
   border-bottom: 1px solid gray;
-}
-
-.form-control textarea {
-
 }
