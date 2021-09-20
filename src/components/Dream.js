@@ -27,6 +27,7 @@ function Dream() {
     
     return (
         <div className='dream'>
+            <h2>{dream.name}</h2>
             {dream.text}
         </div>
     )

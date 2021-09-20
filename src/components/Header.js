@@ -14,7 +14,7 @@ function Header({ toggleShowAdd, showAdd }){
 
   const routeBtn = routes[location.pathname] || routes.default
 
-  console.log('path', location.pathname)
+  // console.log('path', location.pathname)
 
     return (
       <header>

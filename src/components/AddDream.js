@@ -1,12 +1,14 @@
 import moment from 'moment'
 import React from 'react'
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 const AddDream = ({ onAdd }) => {
     const yesterday = moment().add(-1, 'day').format('YYYY-MM-DD')
     const [name, setName] = useState('')
     const [date, setDate] = useState(yesterday)
     const [text, setText] = useState('')
+    const history = useHistory()
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -23,6 +25,8 @@ const AddDream = ({ onAdd }) => {
         setName('')
         setDate(yesterday)
         setText('')
+
+        history.goBack()
     }
 
     return (

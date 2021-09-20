@@ -35,36 +35,37 @@ function App() {
     // console.log(newDream)
     
     const res = await fetch(`http://localhost:5000/dreams`, {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json',
-    },
-    body: JSON.stringify(newDream)
-  })
-  
-  const data = await res.json()
-  setDreams([ ...dreams, data])
-}
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(newDream)
+    })
+    
+    const data = await res.json()
+    setDreams([ ...dreams, data])
 
-const onEdit = (id) => {
-  console.log('edit', id)
-}
-
-const deleteDream = async (id) => {
-  await fetch(`http://localhost:5000/dreams/${id}`, {
-  method: 'DELETE',
-})
-
-setDreams(dreams.filter(dream => dream.id !== id));
-}
-
-const onDelete = (id) => {
-  if (window.confirm('Really delete dream #'+id+'?')) {
-    deleteDream(id)
   }
-}
 
-return (
+  const onEdit = (id) => {
+    console.log('edit', id)
+  }
+
+  const deleteDream = async (id) => {
+    await fetch(`http://localhost:5000/dreams/${id}`, {
+    method: 'DELETE',
+  })
+
+  setDreams(dreams.filter(dream => dream.id !== id));
+  }
+
+  const onDelete = (id) => {
+    if (window.confirm('Really delete dream #'+id+'?')) {
+      deleteDream(id)
+    }
+  }
+
+  return (
   <Router>
     <div className="container">
       <Header  />
@@ -74,7 +75,9 @@ return (
       />
       <Route path='/about' component={About} />
       <Route path='/dream/:id' component={Dream} />
-      <Route path='/add' component={AddDream} props={{ onAdd: addDream }} />
+      <Route path='/add'>
+        <AddDream onAdd={addDream} />
+      </Route>
       <Footer/>
     </div>
     </Router>

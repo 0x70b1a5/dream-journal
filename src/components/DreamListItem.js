@@ -3,6 +3,12 @@ import moment from 'moment'
 import {Link} from 'react-router-dom'
 
 function DreamListItem ({ name, date, summary,   onDelete, id }) {
+    const onDeleteClick = e => {
+        e.preventDefault()
+
+        onDelete(id)
+    }
+
     return (
         <Link className="dreamListItem" to={'/dream/'+id} >
             <div>
@@ -12,7 +18,7 @@ function DreamListItem ({ name, date, summary,   onDelete, id }) {
                 </h3>
                 <div className="dreamSummary">{summary}</div>
             </div>
-            <button className='btn btn-delete btn-inline' onClick={() => onDelete(id)}>Delete</button>
+            <button className='btn btn-delete btn-inline' onClick={onDeleteClick}>Delete</button>
         </Link>
     )
 }
