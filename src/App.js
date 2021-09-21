@@ -5,7 +5,9 @@ import './App.css';
 import DreamsList from './components/DreamsList'
 import Dream from './components/Dream'
 import Header from './components/Header'
+import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
+import WordCloud from './components/WordCloud'
 import About from './components/About'
 import AddDream from './components/AddDream'
 
@@ -66,20 +68,24 @@ function App() {
   }
 
   return (
-  <Router>
-    <div className="container">
-      <Header  />
-      <Route path='/' exact render={(props) => (
-            <DreamsList dreams={dreams} onEdit={onEdit} onDelete={onDelete} />
-          )} 
-      />
-      <Route path='/about' component={About} />
-      <Route path='/dream/:id' component={Dream} />
-      <Route path='/add'>
-        <AddDream onAdd={addDream} />
-      </Route>
-      <Footer/>
-    </div>
+    <Router>
+      <div className='app-container'>
+        <Sidebar />
+        <div className='container'>
+          <Header  />
+          <Route path='/' exact render={(props) => (
+                <DreamsList dreams={dreams} onEdit={onEdit} onDelete={onDelete} />
+              )} 
+          />
+          <Route path='/about' component={About} />
+          <Route path='/dream/:id' component={Dream} />
+          <Route path='/word-cloud' component={WordCloud} />
+          <Route path='/add'>
+            <AddDream onAdd={addDream} />
+          </Route>
+        </div>
+        {/* <Footer /> */}
+      </div>
     </Router>
   )
 }

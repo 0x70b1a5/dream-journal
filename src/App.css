@@ -16,9 +16,28 @@ body {
 
 }
 
-.container {
-  max-width: 500px;
+.app-container {
   margin: 30px auto;
+
+  display: flex;
+  justify-content: center;
+}
+
+nav {
+  margin-right: 1em;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+nav ol li a.btn {
+  width: 100%;
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
   overflow: auto;
   min-height: 300px;
   border: 1px solid black;
@@ -27,7 +46,6 @@ body {
   
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 code {
@@ -159,4 +177,11 @@ footer {
   padding: 3px 7px;
   font-size: 17px;
   border-bottom: 1px solid gray;
+}
+
+.graph {
+  height: 200px;
+  border: 1px solid;
+  border-bottom-width: 3px;
+  margin: 1em;
 }

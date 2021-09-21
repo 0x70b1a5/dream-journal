@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react'
 import {  useParams } from 'react-router'
-import React from 'react'
  
 function Dream() {
     const { id } = useParams()
@@ -17,7 +16,7 @@ function Dream() {
     useEffect(() => {
         const getDream = async () => {
             const dreamFromServer = await fetchDream(id)
-            console.log(dreamFromServer)
+            // console.log(dreamFromServer)
             setDream(dreamFromServer)
         }
         

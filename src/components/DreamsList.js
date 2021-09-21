@@ -1,4 +1,4 @@
-import DreamListItem from './DreamListItem';
+import DreamListItem from './DreamListItem'
 
 function DreamsList({ dreams, onEdit, onDelete }){
 

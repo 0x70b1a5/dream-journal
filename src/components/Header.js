@@ -1,10 +1,12 @@
-import {useLocation, useHistory, Link} from 'react-router-dom'
+import {useLocation, useHistory} from 'react-router-dom'
+import LinkButton from './LinkButton'
+
 function Header({ toggleShowAdd, showAdd }){
   const history = useHistory()
   const location = useLocation()
 
   const backBtn = <button className='btn' onClick={() => history.go(-1)}>Back</button>
-  const addBtn = <Link className='btn' to='/add'>Add</Link>
+  const addBtn = <LinkButton text='Add' to='/add' />
   
   const routes = {
     '/': addBtn,
